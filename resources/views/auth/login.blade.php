@@ -1,31 +1,30 @@
 @extends('layouts.app')
-
+<link rel="stylesheet" href="{{asset('site/css/login.css')}}">
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header" style="color:white; background-color:brown">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     @if(session('error'))
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
-                                        <div class="d-flex align-items-center">
-                                            <div class="font-35 text-white"><i class="bx bxs-message-square-x"></i>
-                                            </div>
-                                            <div class="ms-3">
-                                                <h6 class="mb-0 text-white">Warning Alerts</h6>
-                                                <div class="text-white">{{ session('error') }}</div>
-                                            </div>
-                                        </div>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                            aria-label="Close"></button>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+                                <div class="d-flex align-items-center">
+                                    <div class="font-35 text-white"><i class="bx bxs-message-square-x"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h6 class="mb-0 text-white">Warning Alerts</h6>
+                                        <div class="text-white">{{ session('error') }}</div>
                                     </div>
                                 </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
-                        @endif
+                        </div>
+                    </div>
+                    @endif
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -36,9 +35,9 @@
                                 <input id="email" type="number" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -50,9 +49,9 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -76,9 +75,9 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
                                 @endif
                             </div>
                         </div>
@@ -87,5 +86,4 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
+    @endsection

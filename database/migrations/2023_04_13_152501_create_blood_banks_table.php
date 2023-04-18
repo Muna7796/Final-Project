@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->bigInteger('phone');
+            $table->float('lat');
+            $table->float('lon');
 
             $table->timestamps();
         });
@@ -33,4 +35,3 @@ return new class extends Migration
         Schema::dropIfExists('blood_banks');
     }
 };
-

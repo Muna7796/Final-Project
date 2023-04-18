@@ -12,6 +12,8 @@ class BloodBank extends Model
         'name',
         'address',
         'Phone',
+        'lat',
+        'lon'
 
 
     ];
