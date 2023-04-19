@@ -169,7 +169,7 @@ class AdminController extends Controller
             return redirect()->back()->with('message', 'Donnor added successfully');
         }
         else{
-            return redirect()->back()->with('message', 'Unable to add, due to mobile number doublicate entry');
+            return redirect()->back()->with('message', 'Unable to add, due to mobile number duplicate entry');
         }
 
     }
@@ -235,14 +235,16 @@ class AdminController extends Controller
             'bloods' => Donated::where('blood_group', $bloodgroup)->get(),
             'requested_bloodgroup' => $bloodgroup
         ];
+
         return view('admin.donatebloodlist', $data);
     }
     public function getbloodlist($type){
         $data =[
-                'bloods' => Donated::where('blood_group', $type)->get(),
+                'bloods' => Donated::where('blood_group', $type)->orderby('issue_status', 'asc')->get(),
                 'type' => $type,
                 'requestednames' => Requestedblood::where('delivered', 'No')->get(),
         ];
+
         return view('admin.issueblood', $data);
     }
     public function postIsssueBlood(Request $request){
@@ -251,10 +253,20 @@ class AdminController extends Controller
         $issue_to = $request->input('issuer_name');
         $giveto = $request->input('giveto');
 
-         DB::table('donateds')
+        if($donatedid){
+             DB::table('Requestedbloods')
+        ->where('id', $request->)
+        ->limit(1)
+        ->update(array('issue_status' => 'Y', 'issue_to' => $issue_to, 'requestedblood_id' => $giveto));
+        }
+        else{
+            DB::table('donateds')
         ->where('id', $donatedid)
         ->limit(1)
         ->update(array('issue_status' => 'Y', 'issue_to' => $issue_to, 'requestedblood_id' => $giveto));
+        }
+         
+
         
         $bloodinfo  = Donated::find($donatedid);
 
@@ -306,12 +318,13 @@ class AdminController extends Controller
         
 
      }
+      return redirect()->route('admin.getManageBlood')->with('message', 'Blood Issue Successfully. Blood stock less then 10 unit. system automatic send sms to the donners.');
 
         }
  
+         return redirect()->route('admin.getManageBlood')->with('message', 'Blood Issue Successfully.');
 
-
-        return redirect()->back()->with('message', 'Blood Issue Successfully');
+       
 
 
     }

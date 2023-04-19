@@ -33,7 +33,7 @@ return new class extends Migration
             $table->string('refno')->nullable();
             $table->enum('accpected', ['Yes', 'No'])->nullable();
             $table->text('bloodbankmessage')->nullable();
-            $table->enum('delivered', ['Yes', 'No'])->nullable();
+            $table->enum('delivered', ['Yes', 'No'])->default('No');
             $table->timestamps();
         });
     }

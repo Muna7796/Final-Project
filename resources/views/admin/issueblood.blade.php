@@ -78,15 +78,16 @@
         </div>
         <form action="{{route('admin.postIsssueBlood')}}" method="POST">
             @csrf()
-        <div class="modal-body">
-                <div class="row">
+           
+        <div class="modal-body"> 
                     <div class="col-sm-12 form-group">
                         <label>Issuer Name from Online Request </label>   
                             <select name="giveto" id="" class="form-control">
                                 <option value="">Choose</option>
                                  @foreach($requestednames as $requestname)
-                                @php $name1 = User::find('requestname->user_id'); @endphp
-                                <option value="{{$requestname->id}}-{{$requestname->user_id}}">{{$requestname->name}} {{$requestname->lname}}</option>
+                                @php $name1 = App\Models\User::find($requestname->user_id);
+                                @endphp
+                                <option value="{{$requestname->id}}">{{$name1->name}} {{$name1->lname}} ({{$name1->email}})</option>
                             @endforeach
                             </select>
                     </div>

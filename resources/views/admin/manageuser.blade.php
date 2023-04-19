@@ -10,7 +10,7 @@
                                 {{ __('List of User') }}
                             </div>
                            	<div class="col-md-6" style="text-align:right">
-                           		<a href="" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#AddAdminUser">Add User</a>
+                           		<a href="" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#AddAdminUser">Add Admin</a>
                            	</div>
                         </div>
                     </div>

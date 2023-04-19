@@ -44,7 +44,7 @@
                                          @php
                                             $user = App\Models\User::where('id',$blood->user_id)->limit(1)->first();
                                             $distance = App\Models\Distance::getDistanceBetweenPointsNew(27.701088056754184, 85.3790029625206, $user->lat, $user->lng);
-                                            
+                                            //
                                             
                                             $checklatestdonatedate = App\Models\Donated::where('user_id', $user->id)->limit(1)->first();
                                             if($checklatestdonatedate){

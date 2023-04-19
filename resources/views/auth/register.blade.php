@@ -85,10 +85,10 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label>Minicipality *</label> 
+                                        <label>Municipality *</label> 
                                         <select id="municipalitySel" name="minicipality" class="form-control" size="1" required>
-                                          <option selected=""> Choose Minicipality</option>
-                                        </select>
+                                          <option selected=""> Choose Municipality</option>
+                                        </select> 
                                     </div>
                                   </div>
                                

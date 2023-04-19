@@ -127,8 +127,10 @@
                             <select name="giveto" id="" class="form-control">
                                 <option value="">Choose</option>
                             @foreach($requestednames as $requestname)
-                                @php $name1 = User::find('requestname->user_id'); @endphp
-                                <option value="{{$requestname->id}}-{{$requestname->user_id}}">{{$requestname->name}} {{$requestname->lname}}</option>
+                                @php $name1 = App\Models\User::find('requestname->user_id'); @endphp
+                                @if($name1)
+                                <option value="{{$requestname->id}}-{{$requestname->user_id}}">{{$name1->name}} {{$name1->lname}}</option>
+                                @endif
                             @endforeach
                             </select>
                     </div>
@@ -202,7 +204,7 @@
                   
                 <div class="row">
                    
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                         <label>Blood Group *</label>
                         <select id="blood_group" class="form-control" name="blood_group"  required>
                             <option value="A+">A+</option>
@@ -215,11 +217,15 @@
                             <option value="B-">B-</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="col-md-3">
+                        <label for="">Blood Unit</label>
+                        <input type="number" class="form-control" name="unit" required>
+                    </div>
+                    <div class="form-group col-md-3">
                         <label>Donate Date</label>
                         <input type="date" name="donate_date" class="form-control" value="{{date('Y-m-d')}}" required>
                       </div>
-                      <div class="form-group col-md-4">
+                      <div class="form-group col-md-3">
                         <label>Donate location</label>
                         <input type="text" name="donate_location" class="form-control" required>
                       </div>
