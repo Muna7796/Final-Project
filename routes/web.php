@@ -32,6 +32,8 @@ Route:: middleware('is_admin')->prefix('admin')->group(
         Route::get('/home', [App\Http\Controllers\AdminController::class, 'adminHome'])->name('admin.home');
 Route::get('/donner/manage', [App\Http\Controllers\AdminController::class, 'getManageDonner'])->name('admin.getManageDonner');
 Route::post('/donner/add', [App\Http\Controllers\AdminController::class, 'postNewDonor'])->name('admin.postNewDonor');
+Route::get('/donner/edit/{user}', [App\Http\Controllers\AdminController::class, 'getDonnerEdit'])->name('admin.getDonnerEdit');
+Route::post('/donner/edit/{user}', [App\Http\Controllers\AdminController::class, 'postEditDonor'])->name('admin.postEditDonor');
 Route::get('/blood/request', [App\Http\Controllers\AdminController::class, 'getManageRequestBloodAdmin'])->name('admin.getManageRequestBlood');
 Route::get('/blood/requestdetail/{bloodrequest}', [App\Http\Controllers\AdminController::class, 'getRequestedBloodDetail'])->name('admin.getRequestedBloodDetail');
 

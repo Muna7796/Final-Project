@@ -9,10 +9,7 @@
                             <div class="col-md-6">
                                 List of {{$type}} blood
                             </div>
-                            <div class="col-md-6" style="text-align: right;">
-                                <a  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Blood Unit</a>
-                               
-                            </div>
+                           
                         </div>
                     </div>
                     <div class="card-body">
@@ -79,9 +76,9 @@
         <form action="{{route('admin.postIsssueBlood')}}" method="POST">
             @csrf()
            
-        <div class="modal-body"> 
+                <div class="modal-body"> 
                     <div class="col-sm-12 form-group">
-                        <label>Issuer Name from Online Request </label>   
+                        <label>Issuer Name from Online Request2 </label>   
                             <select name="giveto" id="" class="form-control">
                                 <option value="">Choose</option>
                                  @foreach($requestednames as $requestname)
@@ -93,28 +90,26 @@
                     </div>
                     <div class="col-sm-12 form-group">
                         <label>Issuer Name </label>   
-                      <input type="text" class="form-control" name="issuer_name">
+                         <input type="text" class="form-control" name="issuer_name" placeholder="if request not from online.">
                     </div>
-                   
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label>Blood Group *</label>
-                       <input type="text" class="form-control" name="idddd" value="{{$type}}" disable>
-                       <input type="hidden" name="donated_id" id="donated_id_modal">
+               
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Blood Group *</label>
+                           <input type="text" class="form-control" name="idddd" value="{{$type}}" disable>
+                           <input type="hidden" name="donated_id" id="donated_id_modal">
+                        </div>
+                       
+                        <div class="form-group col-md-6">
+                            <label>Issue Date</label>
+                            <input type="date" name="donate_date" class="form-control" value="{{date('Y-m-d')}}" required>
+                          </div>  
                     </div>
-                   
-                    <div class="form-group col-md-6">
-                        <label>Issue Date</label>
-                        <input type="date" name="donate_date" class="form-control" value="{{date('Y-m-d')}}" required>
-                      </div>
-                      
-                </div>
                     
-                   
+                   </div>
                    
                   
-        </div>
+        
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Issue</button>

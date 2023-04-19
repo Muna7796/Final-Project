@@ -1,0 +1,9 @@
+nav {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+    background: red;
+
+}
+.bg-white{
+    background: pink !important;
+}

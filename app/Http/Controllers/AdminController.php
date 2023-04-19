@@ -173,6 +173,57 @@ class AdminController extends Controller
         }
 
     }
+
+    public function postEditDonor(Request $request, User $user){
+        $fname = $request->input('name');
+        $lname = $request->input('lname');
+        $gender = $request->input('gender');
+        $province = $request->input('province');
+        $district = $request->input('district');
+        $minicipality = $request->input('minicipality');
+        $word_no = $request->input('word_no');
+        $tole = $request->input('tole');
+        $city = $request->input('city');
+        $email = $request->input('email');
+        $bloodgroup = $request->input('bloodgroup');
+        $dob = $request->input('dob');
+       
+        // check donnor double entry
+         $check = User::where('email', $email)->where('id', '!=', $user->id)->count();
+         if($check == 0){
+            ;
+            $user->name = $fname;
+            $user->lname = $lname;
+            $user->email = $email;
+            $user->gender = $gender;
+            $user->province = $province;
+            $user->district = $district;
+            $user->minicipality = $minicipality;
+            $user->city = $city;
+            $user->tole = $tole;
+            $user->word_no = $word_no;
+            $user->save();
+
+        
+            // update blood record
+                DB::table('bloods')
+                ->where('user_id', $user->id)
+                ->limit(1)
+                ->update(array('blood_group' =>  $bloodgroup, 'dob' => $dob));
+           
+            return redirect()->route('admin.getManageDonner')->with('message', 'Donnor edited successfully');
+        }
+        else{
+            return redirect()->back()->with('message', 'Unable to edit, due to mobile number duplicate entry');
+        }
+    }
+    public function getDonnerEdit(User $user){
+        $data =[
+            'user' => $user,
+            'bloodinfo' => Blood::where('user_id', $user->id)->limit(1)->first()
+        ];
+        return view('admin.donneredit', $data);
+    }
     public function getManageRequestBloodAdmin(){
         $data =[
             'requestedbloods' => Requestedblood::all()
@@ -220,12 +271,15 @@ class AdminController extends Controller
         return view('admin.manageblood', $data);
     }
     public function postAddDonorBlood(Request $request){
-        $add = New Donated;
-        $add->user_id = $request->input('donnerid');
-        $add->blood_group = $request->input('blood_group');
-        $add->donate_date = $request->input('donate_date');
-        $add->donate_at = $request->input('donate_location');
-        $add->save();
+        $unit = $request->input('unit');
+        for( $i = 0; $i<$unit; $i++ ) { 
+            $add = New Donated;
+            $add->user_id = $request->input('donnerid');
+            $add->blood_group = $request->input('blood_group');
+            $add->donate_date = $request->input('donate_date');
+            $add->donate_at = $request->input('donate_location');
+            $add->save();
+        }
         return redirect()->back()->with('message', 'blood added successfully');
     }
     public function getIssueBlood($bloodgroup){
@@ -255,16 +309,16 @@ class AdminController extends Controller
 
         if($donatedid){
              DB::table('Requestedbloods')
-        ->where('id', $request->)
+        ->where('id', $giveto)
         ->limit(1)
-        ->update(array('issue_status' => 'Y', 'issue_to' => $issue_to, 'requestedblood_id' => $giveto));
+        ->update(array('delivered' => 'Yes'));
         }
-        else{
+       
             DB::table('donateds')
         ->where('id', $donatedid)
         ->limit(1)
         ->update(array('issue_status' => 'Y', 'issue_to' => $issue_to, 'requestedblood_id' => $giveto));
-        }
+        
          
 
         
@@ -287,7 +341,7 @@ class AdminController extends Controller
                     {
 
                         $user  = User::find($bloods->user_id);
-                        dd($user);
+                        
                         $client = new Client();
                         $res = $client->request('POST', 'https://sms.aakashsms.com/sms/v3/send',
                         [
@@ -342,6 +396,12 @@ class AdminController extends Controller
         if($checkblood > 0){
              Donated::where('user_id', $user->id)->delete();
         }
+
+        $checkonlinerequest = Requestedblood::where('user_id', $user->id)->count();
+        if($checkonlinerequest > 0){
+            Requestedblood::where('user_id', $user->id)->delete();
+        }
+
 
        $user->delete();
       

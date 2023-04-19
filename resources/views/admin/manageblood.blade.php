@@ -219,7 +219,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="">Blood Unit</label>
-                        <input type="number" class="form-control" name="unit" required>
+                        <input type="number" class="form-control" name="unit" min="1" required>
                     </div>
                     <div class="form-group col-md-3">
                         <label>Donate Date</label>

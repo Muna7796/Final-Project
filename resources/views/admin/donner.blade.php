@@ -35,7 +35,7 @@
                                         <th>City</th>
                                         <th>Tole</th>
                                         <th>Blood Group</th>
-                                        <th>Status</th>
+                                       
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -53,10 +53,17 @@
                                                 <td>{{$user->tole}}</td>
                                                 <td>
                                                     {{$item->blood_group}}
-                                                    <small style="display: block;">Latest Blood donate Date : N/A </small>
+                                                    @php $donateinfo = App\Models\Donated::where('user_id', $user->id)->limit(1)->first(); @endphp
+                                                    <small style="display: block;">Latest Blood donate Date :
+                                                        @if($donateinfo)
+                                                            {{$donateinfo->donate_date}}
+                                                        @else
+                                                            N/A
+                                                        @endif
+                                                    </small>
                                                 </td>
-                                                <td>Ok</td>
-                                                <td><a href="">Edit</a> | <a href="{{route('admin.getDonnerDelete',$user->id)}}">Delete</a></td>
+                                               
+                                                <td><a href="{{route('admin.getDonnerEdit', $user->id)}}">Edit</a> | <a href="{{route('admin.getDonnerDelete',$user->id)}}" onclick="return confirm('Are you sure, you want to delete it?')">Delete</a></td>
                                             </tr>
                                         @endif 
                                         @endforeach
