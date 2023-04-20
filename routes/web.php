@@ -27,7 +27,7 @@ Route::get('/manage/requested/blood', [App\Http\Controllers\HomeController::clas
 Route::get('/search/bloodgroup', [App\Http\Controllers\HomeController::class, 'getSearchBloodGroup'])->name('user.getSearchBloodGroup');
 Route::get('/search/result', [App\Http\Controllers\HomeController::class, 'postSearchDonner'])->name('user.postSearchDonner');
 Route::get('/blood/contribution', [App\Http\Controllers\HomeController::class, 'getContribution'])->name('user.getContribution');
-Route::post('/blood/codinate', [App\Http\Controllers\HomeController::class, 'postStoreCoordinate'])->name('user.postStoreCoordinate');
+Route::post('/blood/coodinate', [App\Http\Controllers\HomeController::class, 'postStoreCoordinate'])->name('user.postStoreCoordinate');
 Route::get('/listofbloodbank', [App\Http\Controllers\HomeController::class, 'getBloodbankList'])->name('user.getBloodbankList');
 Route:: middleware('is_admin')->prefix('admin')->group(
     function(){
