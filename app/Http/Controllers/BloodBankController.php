@@ -65,7 +65,7 @@ class BloodBankController extends Controller
         $bloodBank->phone = $validatedData['phone'];
 
 
-        $bloodBank->save();
+        $bloodBank->save(); 
 
         return redirect('/admin/bloodbank')->with('success', 'Blood bank updated successfully!');
     }
@@ -76,5 +76,18 @@ class BloodBankController extends Controller
         $bloodBank->delete();
 
         return redirect('/admin/bloodbank')->with('success', 'Blood bank deleted successfully!');
+    }
+    public function getAddgeolocation(BloodBank $bloodbank){
+        $data =[
+            'bank' => $bloodbank
+        ];
+        return view('admin.bloodbank.geolocation', $data);
+    }
+    public function postBloodbankgeolocation(Request $request, Bloodbank $bloodbank){
+        $bloodbank->lat = $request->input('lng');
+        $bloodbank->lng = $request->input('lat');
+        $bloodbank->save();
+        return redirect()->back()->with('message', 'Geo location updated successfully');
+
     }
 }

@@ -15,6 +15,7 @@ use App\Http\Controllers\BloodBankController;
 */
 
 Route::get('/', [App\Http\Controllers\SiteController::class, 'getHome'])->name('getHome');
+route::get('/abc', [App\Http\Controllers\TestingController::class, 'getTesting'])->name('testing');
 
 Auth::routes();
 
@@ -27,6 +28,7 @@ Route::get('/search/bloodgroup', [App\Http\Controllers\HomeController::class, 'g
 Route::get('/search/result', [App\Http\Controllers\HomeController::class, 'postSearchDonner'])->name('user.postSearchDonner');
 Route::get('/blood/contribution', [App\Http\Controllers\HomeController::class, 'getContribution'])->name('user.getContribution');
 Route::post('/blood/codinate', [App\Http\Controllers\HomeController::class, 'postStoreCoordinate'])->name('user.postStoreCoordinate');
+Route::get('/listofbloodbank', [App\Http\Controllers\HomeController::class, 'getBloodbankList'])->name('user.getBloodbankList');
 Route:: middleware('is_admin')->prefix('admin')->group(
     function(){
         Route::get('/home', [App\Http\Controllers\AdminController::class, 'adminHome'])->name('admin.home');
@@ -53,11 +55,13 @@ Route::get('/blood-request/{type}', [App\Http\Controllers\AdminController::class
 Route::post('/blood-request/{type}', [App\Http\Controllers\AdminController::class, 'postListfofDonnorToRequest'])->name('admin.postListfofDonnorToRequest');
  Route::get('/bloodbank', [BloodBankController::class, 'index'])->name('bloodbank.index');
         Route::get('/bloodbank/create', [BloodBankController::class, 'create'])->name('bloodbank.create');
- Route::get('/bloodbank/{id}', [BloodBankController::class, 'show'])->name('bloodbank.show');
+
  Route::post('/bloodbank', [BloodBankController::class, 'store'])->name('bloodbank.store');
 Route::put('/bloodbank/{id}', [BloodBankController::class, 'update'])->name('bloodbank.update');
 Route::delete('/bloodbank/{id}', [BloodBankController::class, 'destroy'])->name('bloodbank.destroy');
 Route::get('/bloodbank/{id}', [BloodBankController::class, 'edit'])->name('bloodbank.edit');
+Route::get('/geolocation/add/{bloodbank}', [BloodBankController::class, 'getAddgeolocation'])->name('admin.getAddgeolocation');
+Route::post('/geolocation/add/{bloodbank}', [BloodBankController::class, 'postBloodbankgeolocation'])->name('admin.postBloodbankgeolocation');
 
 
     }

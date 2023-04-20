@@ -72,6 +72,11 @@
                                     Blood Request
                                 </a>
                             </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="{{route('bloodbank.index')}}" role="button">
+                                    Blood Banks
+                                </a>
+                            </li>
                             
                             
                             <li class="nav-item dropdown">

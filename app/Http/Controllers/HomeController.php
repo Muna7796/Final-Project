@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Blood;
 use App\Models\Requestedblood;
 use App\Models\Donated;
+use App\Models\BloodBank;
 use DB;
 
 class HomeController extends Controller
@@ -162,6 +163,12 @@ class HomeController extends Controller
         ->limit(1)
         ->update(array('lat' => $lat, 'lng' => $lng));
 
+    }
+    public function getBloodbankList(){
+        $data =[
+                'bloodbanks' => BloodBank::all()
+        ];
+        return view('user.bloodbanklist', $data);
     }
   
 }

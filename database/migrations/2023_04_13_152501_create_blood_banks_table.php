@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->bigInteger('phone');
+             $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
 
             $table->timestamps();
         });

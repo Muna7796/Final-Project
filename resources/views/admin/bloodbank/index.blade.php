@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.template')
 
 @section('content')
 <div class="container">
@@ -21,6 +21,7 @@
                 <td>{{ $bloodbank->phone }}</td>
 
                 <td>
+                    <a href="{{route('admin.getAddgeolocation', $bloodbank->id)}}" class="btn btn-danger">Define Geolocation</a>
                     <a href="{{ route('bloodbank.edit', $bloodbank->id) }}" class="btn btn-primary">Edit</a>
                     <form action="{{ route('bloodbank.destroy', $bloodbank->id) }}" method="POST" style="display: inline-block">
                         @csrf
