@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BloodBankController;
+use App\Http\Controllers\UserDistanceController;
 use NominatimLaravel\Content\Nominatim;
 use App\Models\BloodBank;
 
@@ -62,6 +63,7 @@ Route::middleware('is_admin')->prefix('admin')->group(
     }
 
 );
+Route::get('/shortdist', [UserDistanceController::class, 'create'])->name('shortdist.create');
 
 Route::get('test', function () {
     $UserCoord = array(); //stores user coord;
