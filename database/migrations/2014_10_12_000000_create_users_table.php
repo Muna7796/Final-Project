@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('lname');
-            $table->string('email')->unique();
+            $table->string('mobile')->unique();
             $table->boolean('is_admin')->default(0);
             $table->enum('gender',['Male', 'Female', 'Other']);
             $table->string('province');

@@ -27,7 +27,7 @@ class User extends Authenticatable
         'word_no',
         'city',
         'tole',
-        'email',
+        'mobile',
         'password',
         'is_admin',
     ];

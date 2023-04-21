@@ -148,9 +148,9 @@
                                   <div class="form-row">
                                     <div class="form-group col-md-6">
                                     <label>Mobile Number *</label>
-                                    <input type="number" id="email" name="email" class="form-control" required>
+                                    <input type="number" id="mobile" name="mobile" class="form-control" required>
                                     <small>Mobile number will be your username</small>
-                                    @error('email')
+                                    @error('mobile')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

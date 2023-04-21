@@ -18,7 +18,7 @@ class Distance extends Model
     $distance = rad2deg($distance); 
     $distance = $distance * 60 * 1.1515;
 
-    switch($unit) 
+    switch($unit)
     { 
         case 'Mi': break;
         case 'Km' : $distance = $distance * 1.609344; 
