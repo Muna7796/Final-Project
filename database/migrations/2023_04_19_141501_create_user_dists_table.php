@@ -13,19 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('blood_banks', function (Blueprint $table) {
+        Schema::create('user_dists', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('address');
-            $table->bigInteger('phone');
-<<<<<<< HEAD
-             $table->string('lat')->nullable();
-            $table->string('lng')->nullable();
-=======
-            $table->float('lat');
-            $table->float('lon');
->>>>>>> karuna_branch
-
+            $table->string('location');
             $table->timestamps();
         });
     }
@@ -37,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blood_banks');
+        Schema::dropIfExists('user_dists');
     }
 };

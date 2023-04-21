@@ -1,36 +1,54 @@
-*{
-  padding:0;
-  margin:0;
-  box-sizing:border-box;
-}
-nav .navbar-header a,ul li a{
-  color:#fff;
-
-}
-nav .navbar-header button .fa{
-  color:#fff;
-  border:1px solid #fff;
-  border-radius:5px;
-  padding:4px 10px;
-  font-size:1.5em;
-  position:absolute;
-  top:-0.5px;
-  left:-30px;
-}
-nav .active{
-  background-color:#337ab7;
-}
-body{
-  background-image:url('https://images.pexels.com/photos/1036808/pexels-photo-1036808.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-  background-repeat:no-repeat;
- 
-  
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-section .container{
-  position:relative;
-  top:120px;
+nav {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
 }
+
+nav .navbar-header a,
+ul li a {
+  color: #fff;
+
+}
+
+nav .navbar-header button .fa {
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 1.5em;
+  position: absolute;
+  top: -0.5px;
+  left: -30px;
+}
+
+nav .active {
+  background-color: #940808;
+}
+
+.navbar-nav li a:hover {
+  background-color: #d43a3a;
+  transition: background-color 0.3s ease;
+}
+
+
+body {
+  background-image: url('../Images/bd.png');
+  background-repeat: no-repeat;
+  background-position: left;
+
+
+}
+
+section .container {
+  position: relative;
+  top: 120px;
+}
+
 /*section .container .row .col-sm-6 img{
   width:150%;
   height:100%;
@@ -38,30 +56,164 @@ section .container{
   left:-10em;
   top:-1em;
 }*/
-section .jumbotron{
-  border-radius:5px;
-  background-color:rgba(255,255,255,0.6);
-}
-footer{
-  position:relative;
-  top:200px;
-  color:#abc;
-  /*background-color:*/
-  width:100%;
+section .jumbotron {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
-@media (max-width:766px){
-  section .container{
-    width:60%;
+footer {
+  position: relative;
+  top: 200px;
+  color: #abc;
+  /*background-color:*/
+  width: 100%;
+}
+
+@media (max-width:766px) {
+  section .container {
+    width: 60%;
   }
 }
-@media (max-width:480px){
-  section .container{
-    width:80%;
+
+@media (max-width:480px) {
+  section .container {
+    width: 80%;
   }
 }
-@media (max-width:375px){
-  section .container{
-    width:100%;
+
+@media (max-width:375px) {
+  section .container {
+    width: 100%;
   }
+}
+
+/* Register added by karuna for top of form container */
+
+
+.panel-heading h4 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fbEcEb;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Style for panel */
+.panel {
+  border-radius: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Next Register form css */
+/* Set styles for the form labels */
+/* label {
+  font-weight: bold;
+  font-size: 15px;
+} */
+/* Style for form fields */
+.form-control {
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+}
+
+/* Style for form label */
+label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #666666;
+  margin-bottom: 10px;
+}
+
+/* Style for radio button label */
+.form-check-label {
+  font-size: 16px;
+  color: #666666;
+}
+
+/* For radio button */
+.form-check-inline {
+  margin-right: 20px;
+  /* Add a margin between the radio buttons */
+}
+
+.form-check-input[type="radio"] {
+  margin-right: 5px;
+  /* Add a small margin between the radio button and its label */
+}
+
+.form-check-label {
+  display: inline-block;
+  /* Display the label as an inline-block element */
+  margin-left: 5px;
+  /* Add a small margin between the radio button and its label */
+}
+
+/* Style for submit button */
+.btn {
+
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Style for error message */
+.invalid-feedback {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Style for form group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Style for form row */
+.form-row {
+  margin-bottom: 20px;
+}
+
+
+
+/* Media queries for responsive design */
+@media only screen and (max-width: 768px) {
+  .col-sm-6.col-sm-offset-6 {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-row {
+    flex-wrap: wrap;
+  }
+
+  .form-group.col-md-4 {
+    flex-basis: 100%;
+  }
+}
+
+/* Footer */
+.page-footer {
+  background-color: #940808;
+  padding: 8px;
+  text-align: center;
+  width: 100%;
+}
+
+.page-footer h5 {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
 }
