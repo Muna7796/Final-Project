@@ -13,6 +13,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+         <link rel="stylesheet" type="text/css" href="{{asset('admin/css/admintemplate.css')}}">
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @yield('css')
@@ -23,7 +25,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/') }}" style="color:#fff">
                     Rakta Seva
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -111,6 +113,10 @@
         <main class="py-4">
             @yield('content')
         </main>
+         <footer class="page-footer container-fluid">
+            <hr>
+            <h5 class="text-center">&copy; Rakt Seva. All Rights Reserved</h5>
+        </footer>
     </div>
    
     <script src="{{asset('jquery.js')}}"></script>

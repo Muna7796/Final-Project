@@ -11,9 +11,12 @@
 }
 
 .card-header {
-    background-color: #007bff;
+    background-color: hwb(0 4% 66%);
     color: #fff;
     padding: 1rem;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
 }
 
 .card-body {
@@ -22,4 +25,11 @@
 
 h5 {
     margin-bottom: 1rem;
+}
+
+body {
+    background-image: url('../Images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
 }

@@ -1,5 +1,7 @@
 @extends('admin.template')
 @section('content') 
+<link rel="stylesheet" href="{{asset('site/css/manageblood.css')}}">
+
 <div class="container">
     <div class="row justify-content-center">
             <div class="col-md-12">

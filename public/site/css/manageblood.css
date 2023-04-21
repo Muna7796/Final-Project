@@ -1,40 +1,125 @@
-/* CSS code for the card */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 
+}
 
 .card {
+    margin-top: 30px;
     border: 1px solid #ccc;
-    border-radius: 0;
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
-    background-color: #f0f0f0;
+    background-color: hwb(0 4% 66%);
+    color: #fff;
+    padding: 1rem;
     font-weight: bold;
-    padding: 10px 20px;
+    text-align: left;
+    font-size: 21px;
 }
 
 .card-body {
-    padding: 20px;
+    padding: 1rem;
 }
 
+h5 {
+    margin-bottom: 1rem;
+}
+
+/* Apply custom styles to the table */
 .table {
     width: 100%;
-
+    margin-bottom: 1rem;
+    color: #333;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
 }
 
+/* Apply custom styles to the table header cells */
 .table th {
     font-weight: bold;
     text-align: left;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    padding: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
+/* Apply custom styles to the table data cells */
 .table td {
-    padding: 10px 0;
+    vertical-align: middle;
+    border: 1px solid #e9ecef;
+    padding: 0.75rem;
+}
+
+/* Apply custom styles to the links in the table */
+.table a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Apply custom styles to the span inside the data cells */
+.table td span {
+    font-weight: bold;
+}
+
+/* Apply custom styles to the table on smaller screens */
+@media (max-width: 768px) {
+    .table {
+        font-size: 12px;
+    }
+}
+
+/* Apply custom styles to the table hover effect */
+.table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Apply custom styles to the table striped effect */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Apply custom styles to the table bordered effect */
+.table-bordered {
+    border: 1px solid #e9ecef;
+}
+
+/* Apply custom styles to the table bordered header cells */
+.table-bordered th {
+    border: 1px solid #e9ecef;
+}
+
+/* Apply custom styles to the table bordered data cells */
+.table-bordered td {
+    border: 1px solid #e9ecef;
+}
+
+/* for issue blood */
+td a {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    background-color: #0d5efd;
+    color: whitesmoke !important;
+    transition: all 0.2s ease-in-out;
+}
+
+td a:hover {
+    background-color: #0c437e;
+    color: #fff !important;
 }
 
 body {
     background-image: url('../Images/bg.png');
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.7;
+    opacity: 0.8;
 }

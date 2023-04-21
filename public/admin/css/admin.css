@@ -5,6 +5,9 @@ nav {
 
 }
 .bg-white{
-    background:  !important;
+    background:darkred !important;
     color: white;
 }
+ .nav-link{
+            color:#fff !important;
+        }

@@ -1,0 +1,102 @@
+/* Apply some basic styles to the table */
+table {
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    border-collapse: collapse;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+    border-radius: 0.25rem;
+}
+
+/* Style the table header cells */
+table th {
+    font-weight: bold;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+    padding: 0.75rem;
+    vertical-align: top;
+    text-align: left;
+}
+
+/* Style the table body cells */
+table td {
+    border-color: #dee2e6;
+    padding: 0.75rem;
+    vertical-align: top;
+}
+
+/* Add some padding to the card */
+.card {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    /* box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05); */
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+    border-radius: 0.25rem;
+}
+
+/* Style the card header */
+.card-header {
+    background-color: hwb(0 4% 66%);
+    color: #fff;
+    padding: 0.75rem;
+    border-bottom: 0;
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+
+}
+
+/* Style the card body */
+.card-body {
+    padding: 1.25rem;
+}
+
+/* Style the alert */
+.alert {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+}
+
+/* Style the link */
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+/* Add some margin to the table */
+.table {
+    margin-bottom: 0;
+}
+
+/* Add some spacing between table rows */
+.table tr:not(:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+/* Add some padding to small elements */
+small {
+    padding-left: 0.5rem;
+}
+
+/* Make the table responsive */
+@media screen and (max-width: 767px) {
+    table {
+        overflow-x: auto;
+        display: block;
+    }
+
+    table th,
+    table td {
+        white-space: nowrap;
+    }
+}
+
+body {
+    background-image: url('../Images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+}

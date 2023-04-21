@@ -19,7 +19,7 @@ use App\Models\BloodBank;
 */
 
 Route::get('/', [App\Http\Controllers\SiteController::class, 'getHome'])->name('getHome');
-route::get('/abc', [App\Http\Controllers\TestingController::class, 'getTesting'])->name('testing');
+
 
 Auth::routes();
 
@@ -31,28 +31,17 @@ Route::get('/manage/requested/blood', [App\Http\Controllers\HomeController::clas
 Route::get('/search/bloodgroup', [App\Http\Controllers\HomeController::class, 'getSearchBloodGroup'])->name('user.getSearchBloodGroup');
 Route::get('/search/result', [App\Http\Controllers\HomeController::class, 'postSearchDonner'])->name('user.postSearchDonner');
 Route::get('/blood/contribution', [App\Http\Controllers\HomeController::class, 'getContribution'])->name('user.getContribution');
-<<<<<<< HEAD
-Route::post('/blood/coodinate', [App\Http\Controllers\HomeController::class, 'postStoreCoordinate'])->name('user.postStoreCoordinate');
-Route::get('/listofbloodbank', [App\Http\Controllers\HomeController::class, 'getBloodbankList'])->name('user.getBloodbankList');
-Route:: middleware('is_admin')->prefix('admin')->group(
-    function(){
-        Route::get('/home', [App\Http\Controllers\AdminController::class, 'adminHome'])->name('admin.home');
-Route::get('/donner/manage', [App\Http\Controllers\AdminController::class, 'getManageDonner'])->name('admin.getManageDonner');
-Route::post('/donner/add', [App\Http\Controllers\AdminController::class, 'postNewDonor'])->name('admin.postNewDonor');
-Route::get('/donner/edit/{user}', [App\Http\Controllers\AdminController::class, 'getDonnerEdit'])->name('admin.getDonnerEdit');
-Route::post('/donner/edit/{user}', [App\Http\Controllers\AdminController::class, 'postEditDonor'])->name('admin.postEditDonor');
-Route::get('/blood/request', [App\Http\Controllers\AdminController::class, 'getManageRequestBloodAdmin'])->name('admin.getManageRequestBlood');
-Route::get('/blood/requestdetail/{bloodrequest}', [App\Http\Controllers\AdminController::class, 'getRequestedBloodDetail'])->name('admin.getRequestedBloodDetail');
-=======
 Route::post('/blood/codinate', [App\Http\Controllers\HomeController::class, 'postStoreCoordinate'])->name('user.postStoreCoordinate');
+Route::get('/listofbloodbank', [App\Http\Controllers\HomeController::class, 'getBloodbankList'])->name('user.getBloodbankList');
 Route::middleware('is_admin')->prefix('admin')->group(
     function () {
         Route::get('/home', [App\Http\Controllers\AdminController::class, 'adminHome'])->name('admin.home');
         Route::get('/donner/manage', [App\Http\Controllers\AdminController::class, 'getManageDonner'])->name('admin.getManageDonner');
         Route::post('/donner/add', [App\Http\Controllers\AdminController::class, 'postNewDonor'])->name('admin.postNewDonor');
+        Route::get('/donner/edit/{user}', [App\Http\Controllers\AdminController::class, 'getDonnerEdit'])->name('admin.getDonnerEdit');
+Route::post('/donner/edit/{user}', [App\Http\Controllers\AdminController::class, 'postEditDonor'])->name('admin.postEditDonor');
         Route::get('/blood/request', [App\Http\Controllers\AdminController::class, 'getManageRequestBloodAdmin'])->name('admin.getManageRequestBlood');
         Route::get('/blood/requestdetail/{bloodrequest}', [App\Http\Controllers\AdminController::class, 'getRequestedBloodDetail'])->name('admin.getRequestedBloodDetail');
->>>>>>> karuna_branch
 
         Route::get('/blood/requestdetail/{bloodrequest}', [App\Http\Controllers\AdminController::class, 'getRequestedBloodDetail'])->name('admin.getRequestedBloodDetail');
         Route::post('/blood/requestdetail1/{bloodrequest}', [App\Http\Controllers\AdminController::class, 'postResponse'])->name('admin.postResponse');
@@ -70,23 +59,13 @@ Route::middleware('is_admin')->prefix('admin')->group(
         Route::post('/blood-request/{type}', [App\Http\Controllers\AdminController::class, 'postListfofDonnorToRequest'])->name('admin.postListfofDonnorToRequest');
         Route::get('/bloodbank', [BloodBankController::class, 'index'])->name('bloodbank.index');
         Route::get('/bloodbank/create', [BloodBankController::class, 'create'])->name('bloodbank.create');
-<<<<<<< HEAD
-
- Route::post('/bloodbank', [BloodBankController::class, 'store'])->name('bloodbank.store');
-Route::put('/bloodbank/{id}', [BloodBankController::class, 'update'])->name('bloodbank.update');
-Route::delete('/bloodbank/{id}', [BloodBankController::class, 'destroy'])->name('bloodbank.destroy');
-Route::get('/bloodbank/{id}', [BloodBankController::class, 'edit'])->name('bloodbank.edit');
-Route::get('/geolocation/add/{bloodbank}', [BloodBankController::class, 'getAddgeolocation'])->name('admin.getAddgeolocation');
-Route::post('/geolocation/add/{bloodbank}', [BloodBankController::class, 'postBloodbankgeolocation'])->name('admin.postBloodbankgeolocation');
-
-
-=======
         Route::get('/bloodbank/{id}', [BloodBankController::class, 'show'])->name('bloodbank.show');
         Route::post('/bloodbank', [BloodBankController::class, 'store'])->name('bloodbank.store');
         Route::put('/bloodbank/{id}', [BloodBankController::class, 'update'])->name('bloodbank.update');
         Route::delete('/bloodbank/{id}', [BloodBankController::class, 'destroy'])->name('bloodbank.destroy');
         Route::get('/bloodbank/{id}', [BloodBankController::class, 'edit'])->name('bloodbank.edit');
->>>>>>> karuna_branch
+        Route::get('/geolocation/add/{bloodbank}', [BloodBankController::class, 'getAddgeolocation'])->name('admin.getAddgeolocation');
+Route::post('/geolocation/add/{bloodbank}', [BloodBankController::class, 'postBloodbankgeolocation'])->name('admin.postBloodbankgeolocation');
     }
 
 );
@@ -95,7 +74,7 @@ Route::get('/shortdist', [UserDistanceController::class, 'create'])->name('short
 Route::get('test', function () {
     $UserCoord = array(); //stores user coord;
     $location = 'Purtimkanda';
-    $bloodcoord = BloodBank::select('lat', 'lon', 'name')->get();
+    $bloodcoord = BloodBank::select('lat', 'lng', 'name')->get();
 
     //find user coord
     $url = "http://nominatim.openstreetmap.org/";
