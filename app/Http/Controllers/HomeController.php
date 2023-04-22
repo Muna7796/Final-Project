@@ -154,7 +154,7 @@ class HomeController extends Controller
         }
     }
 
-    public function postStoreCoordinate(Request $request){
+    public function postStoreCoordinate(Request $request){ 
         $lat = $request->input('lat');
         $lng = $request->input('lng');
 
@@ -162,11 +162,13 @@ class HomeController extends Controller
         ->where('id', Auth()->user()->id)
         ->limit(1)
         ->update(array('lat' => $lat, 'lng' => $lng));
+        return redirect()->back()->with('status', 'Your location store successfully');
 
     }
     public function getBloodbankList(){
         $data =[
-                'bloodbanks' => BloodBank::all()
+                'bloodbanks' => BloodBank::all(),
+                'result' => Null
         ];
         return view('user.bloodbanklist', $data);
     }

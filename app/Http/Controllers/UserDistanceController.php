@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\UserDist;
+use App\Models\User;
+use App\Models\Distance;
+use App\Models\BloodBank;
 
 class UserDistanceController extends Controller
 {
@@ -28,5 +31,20 @@ class UserDistanceController extends Controller
         UserDist::create($request->only(['name', 'location']));
 
         return redirect()->route('shortest-distance');
+
+    }
+
+    public function getFindNearestBloodbank(Request $request){
+          $user = User::find(Auth()->user()->id);
+           
+        $getnearestdistance = Distance::getUserNerestDistance($user->lat, $user->lng, $request->get('location'));
+        $data =[
+                'bloodbanks' => BloodBank::all(),
+                'result' => $getnearestdistance
+        ];
+        return view('user.bloodbanklist', $data);
+
+      
+
     }
 }

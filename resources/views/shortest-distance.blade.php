@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <h1>Shortest Distance Finder</h1>
-        <form id="distance-form" method="POST" action="{{ route('shortdist.create') }}">
+        <form id="distance-form" method="POST" action="{{ url('/test') }}">
             @csrf
 
             <label for="name">Name:</label>

@@ -51,11 +51,11 @@
                   <div class="col-sm-6 form-group">
 
                     <label>First name </label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="fName" name="name" placeholder="">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" id="fName" name="name" placeholder="">
                   </div> <!-- form-group end.// -->
                   <div class="col-sm-6 form-group">
                     <label>Last name</label>
-                    <input type="text" class="form-control @error('lname') is-invalid @enderror" id="lName" name="lname" placeholder=" ">
+                    <input type="text" class="form-control @error('lname') is-invalid @enderror" value="{{old('lname')}}"  id="lName" name="lname" placeholder=" ">
                   </div> <!-- form-group end.// -->
                 </div> <!-- form-row end.// -->
                 <div class="form-group">
@@ -138,11 +138,11 @@
                   </div>
                   <div class="form-group col-md-4">
                     <label>City *</label>
-                    <input type="text" id="city" name="city" class="form-control" required>
+                    <input type="text" id="city" name="city" class="form-control" value="{{old('city')}}" required>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Tole *</label>
-                    <input type="text" id="tole" name="tole" class="form-control" required>
+                    <input type="text" id="tole" name="tole" class="form-control"  value="{{old('tole')}}"required>
                   </div><!-- form-group end.// -->
 
                 </div> <!-- form-row.// -->
@@ -150,7 +150,7 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label>Mobile Number *</label>
-                    <input type="number" id="mobile" name="mobile" class="form-control" required>
+                    <input type="number" id="mobile" name="mobile" class="form-control" value="{{old('mobile')}}" required>
                     <small>Mobile number will be your username</small>
                     @error('mobile')
                     <span class="invalid-feedback" role="alert">

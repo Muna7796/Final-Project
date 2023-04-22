@@ -70,7 +70,7 @@
                                     <td>{{$item->user->tole}}, {{$item->user->city}}-{{$item->user->word_no}} <br /> {{$item->user->minicipality}}, {{$item->user->district}}, {{$item->user->province}}  </td>
                                     <td>{{$item->blood_group}}</td>
                                     <td>N/A</td>
-                                    <td>{{$item->user->email}}</td>
+                                    <td>{{$item->user->mobile}}</td>
                                 </tr>
                             @endforeach
                         </table>

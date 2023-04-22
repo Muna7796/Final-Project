@@ -131,7 +131,7 @@
                 <div class="row">
                     <div class="form-group col-md-4">
                       <label>Mobile Number *</label>
-                      <input type="number" id="email" name="email" class="form-control" value="{{$user->email}}" required>
+                      <input type="number" id="email" name="email" class="form-control" value="{{$user->mobile}}" required>
                      
                        
                     </div>

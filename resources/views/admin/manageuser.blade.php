@@ -1,6 +1,6 @@
 @extends('admin.template')
 @section('content') 
-<link rel="stylesheet" href="{{asset('site/css/manageuser.css')}}">
+<!-- <link rel="stylesheet" href="{{asset('site/css/manageuser.css')}}"> -->
 <div class="container">
     <div class="row justify-content-center">
             <div class="col-md-12">
@@ -38,7 +38,7 @@
                                 	@foreach($users as $user)
                                    <tr>
                                    	<td>{{$user->name}} {{$user->lname}}</td>
-                                   	<td>{{$user->email}}</td>
+                                   	<td>{{$user->mobile}}</td>
                                    	<td><a href="{{route('admin.getAdminUserDelete', $user->id)}}">Delete</td>
                                    </tr>
                                    @endforeach

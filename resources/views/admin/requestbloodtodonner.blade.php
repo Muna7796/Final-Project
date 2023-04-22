@@ -67,7 +67,7 @@
                                         <tr>
                                             <td>
                                                 @if($status == 'true')
-                                                <input type="checkbox" name="checked[]" value="{{$user->email}}">
+                                                <input type="checkbox" name="checked[]" value="{{$user->mobile}}">
                                                 @else
                                                     inability to donate
                                                 @endif
@@ -82,12 +82,12 @@
                                                     --
                                                 @endif
                                             </td>
-                                            <td>{{$user->email}}</td>
+                                            <td>{{$user->mobile}}</td>
                                             <td>
                                                {{$user->province}}, {{$user->district}}, {{$user->minicipality}}-{{$user->word_no}}
                                             </td>
                                         </tr>
-                                        <input type="hidden" name="mobilenumber[]" value="{{$user->email}}">
+                                        <input type="hidden" name="mobilenumber[]" value="{{$user->mobile}}">
                                         
                                         @endif
                                     @endforeach

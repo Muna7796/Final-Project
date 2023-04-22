@@ -44,7 +44,7 @@
                             <h5>Your Personal Information</h5>
                             <strong>Full Name : {{Auth()->user()->name}} {{Auth()->user()->lname}}</strong> <br />
                             <strong>Gender : {{Auth()->user()->gender}} Date of Birth: {{$bloodinformation->dob}}</strong><br />
-                            <strong>Contact Number : {{Auth()->user()->email}}</strong> <br />
+                            <strong>Contact Number : {{Auth()->user()->mobile}}</strong> <br />
                             <strong>Address : {{ Auth()->user()->tole }}, {{Auth()->user()->city}}-{{Auth()->user()->word_no}}, {{ Auth()->user()->minicipality }}, {{ Auth()->user()->district }}, {{ Auth()->user()->province }} </strong>
                         </div>
                    </div>
@@ -113,6 +113,7 @@
                 </div>
             </div>
         </div>
+         @endif
          <div class="row1 justify-content-center11" style="margin-top: 10px;">
                 <div class="col-md-12">
                  <div class="card">
@@ -153,7 +154,7 @@
                 
                 </div>
             </div>
-        @endif
+       
     </div>
 
 </div>

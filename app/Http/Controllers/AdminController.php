@@ -35,9 +35,10 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
     public function getManageDonner(){
+        //dd('sd');
         if(Auth()->user()->is_admin == 1){
             $data =[
-                'donners' => Blood::all()
+                'donners' => Blood::orderby('id', 'desc')->get()
             ];
             return view('admin.donner', $data);
         }
@@ -127,14 +128,14 @@ class AdminController extends Controller
         $dob = $request->input('dob');
         $makeaccount = $request->input('makeaccount');
         // check donnor double entry
-         $check = User::where('email', $email)->count();
+         $check = User::where('mobile', $email)->count();
          if($check == 0){
             $password = Str::random(4);
             $user = New User;
             $user->name = $fname;
             $user->lname = $lname;
             $user->is_admin ='0';
-            $user->email = $email;
+            $user->mobile = $email;
             $user->gender = $gender;
             $user->province = $province;
             $user->district = $district;
@@ -153,7 +154,7 @@ class AdminController extends Controller
                     'form_params' => [
                         'auth_token' => 'e17b9097e6ec4450ed488ee536924d2b41e4ec8a6ffdac7cff5e2aed0cf4a3c7',
                         'from' => '31001',
-                        'to' => $user->email,
+                        'to' => $user->mobile,
                         'text' => $text_message,
                     ]
         
@@ -166,7 +167,7 @@ class AdminController extends Controller
             $blood->user_id = $user->id;
             $blood->dob = $dob;
             $blood->save();
-            return redirect()->back()->with('message', 'Donnor added successfully');
+            return redirect()->back()->with('message', 'Donor added successfully');
         }
         else{
             return redirect()->back()->with('message', 'Unable to add, due to mobile number duplicate entry');
@@ -189,12 +190,12 @@ class AdminController extends Controller
         $dob = $request->input('dob');
        
         // check donnor double entry
-         $check = User::where('email', $email)->where('id', '!=', $user->id)->count();
+         $check = User::where('mobile', $email)->where('id', '!=', $user->id)->count();
          if($check == 0){
             ;
             $user->name = $fname;
             $user->lname = $lname;
-            $user->email = $email;
+            $user->mobile = $email;
             $user->gender = $gender;
             $user->province = $province;
             $user->district = $district;
@@ -211,7 +212,7 @@ class AdminController extends Controller
                 ->limit(1)
                 ->update(array('blood_group' =>  $bloodgroup, 'dob' => $dob));
            
-            return redirect()->route('admin.getManageDonner')->with('message', 'Donnor edited successfully');
+            return redirect()->route('admin.getManageDonner')->with('message', 'Donor edited successfully');
         }
         else{
             return redirect()->back()->with('message', 'Unable to edit, due to mobile number duplicate entry');
@@ -255,7 +256,7 @@ class AdminController extends Controller
             'form_params' => [
                 'auth_token' => 'e17b9097e6ec4450ed488ee536924d2b41e4ec8a6ffdac7cff5e2aed0cf4a3c7',
                 'from' => '31001',
-                'to' => $user->email,
+                'to' => $user->mobile,
                 'text' => $text_message,
             ]
         ]);
@@ -349,7 +350,7 @@ class AdminController extends Controller
                             [
                                 'auth_token' => 'e17b9097e6ec4450ed488ee536924d2b41e4ec8a6ffdac7cff5e2aed0cf4a3c7',
                                 'from' => '31001',
-                                'to' => $user->email,
+                                'to' => $user->mobile,
                                 'text' => $text_message,
                             ]
                         ]);
@@ -364,7 +365,7 @@ class AdminController extends Controller
                             [
                                 'auth_token' => 'e17b9097e6ec4450ed488ee536924d2b41e4ec8a6ffdac7cff5e2aed0cf4a3c7',
                                 'from' => '31001',
-                                'to' => $user->email,
+                                'to' => $user->mobile,
                                 'text' => $text_message,
                             ]
                         ]);
@@ -409,7 +410,7 @@ class AdminController extends Controller
        
 
 
-        return redirect()->back()->with('message', 'donner Delete Sucess');
+        return redirect()->back()->with('message', 'donor Delete Sucess');
     }
     public function getManageAdminUser(){
         $data =[
@@ -433,14 +434,14 @@ class AdminController extends Controller
         $dob = $request->input('dob');
         $makeaccount = $request->input('makeaccount');
         // check donnor double entry
-         $check = User::where('email', $email)->count();
+         $check = User::where('mobile', $email)->count();
          if($check == 0){
            
             $user = New User;
             $user->name = $fname;
             $user->lname = $lname;
             $user->is_admin ='1';
-            $user->email = $email;
+            $user->mobile = $email;
             $user->gender = $gender;
             $user->province = $province;
             $user->district = $district;

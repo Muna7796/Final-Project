@@ -28,6 +28,7 @@
                             <table class="table" id="myTable">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Full Name</th>
                                         <th>Province</th>
                                         <th>District</th>
@@ -42,9 +43,10 @@
                                 <tbody>
                                     @if($donners->count())
                                         @foreach($donners as $item)
-                                        <?php $user = App\Models\User::where('id', $item->user_id)->limit(1)->first(); ?>
-                                        @if($user->is_admin == 0)
+                                        <?php $user = App\Models\User::where('id', $item->user_id)->where('is_admin', '0')->limit(1)->first(); ?>
+                                        @if($user)
                                             <tr>
+                                                <td>{{$user->id}}</td>
                                                 <td>{{$user->name}} {{$user->lname}}</td>
                                                 <td>{{$user->province}}</td>
                                                 <td>{{$user->district }}</td>

@@ -126,7 +126,8 @@
      @yield('js')
       <script>
         $(document).ready( function () {
-    $('#myTable').DataTable();
+    $('#myTable').DataTable({order:['desc']});
+
 });
     </script>
 </body>

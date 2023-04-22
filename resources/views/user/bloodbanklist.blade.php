@@ -2,12 +2,12 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">{{ __('List of Blood Bank') }}</div>
                     <div class="card-body">
                         <div class="row">
-                            <table class="table">
+                            <table class="table" id="myTable">
                                 <thead>
                                     <tr>
                                         <th>Blood Bank Name</th>
@@ -38,6 +38,25 @@
                                     @endif
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="margin-top:10px">
+                    <div class="card-header">{{ __('Search Nearest Blood Bank from anywhere') }}</div>
+                    <div class="card-body">
+                        <div class="row">
+                           <form id="distance-form" method="GET" action="{{ route('user.getFindNearestBloodbank') }}">
+            @csrf
+
+            
+            
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+            <button type="submit">Find Shortest Distance</button>
+        </form>
+        @if($result != Null)
+            <h3>{{$result}}</h3>
+        @endif
                         </div>
                     </div>
                 </div>

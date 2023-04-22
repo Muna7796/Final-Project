@@ -36,11 +36,11 @@
                     <form class="auth-login-form mt-2" action="{{route('adminLoginPost')}}" method="post">
                         @csrf
                         <div class="mb-1">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="text" class="form-control" id="email" name="email" value="{{old('email') }}" autofocus />
-                            @if ($errors->has('email'))
+                            <label for="email" class="form-label">Mobile</label>
+                            <input type="text" class="form-control" id="mobile" name="mobile" value="{{old('email') }}" autofocus />
+                            @if ($errors->has('mobile'))
                             <span class="help-block font-red-mint">
-                                <strong>{{ $errors->first('email') }}</strong>
+                                <strong>{{ $errors->first('mobile') }}</strong>
                             </span>
                             @endif
                         </div>

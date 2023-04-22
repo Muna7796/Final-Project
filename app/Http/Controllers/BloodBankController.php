@@ -84,8 +84,8 @@ class BloodBankController extends Controller
         return view('admin.bloodbank.geolocation', $data);
     }
     public function postBloodbankgeolocation(Request $request, Bloodbank $bloodbank){
-        $bloodbank->lat = $request->input('lng');
-        $bloodbank->lng = $request->input('lat');
+        $bloodbank->lat = $request->input('lat');
+        $bloodbank->lng = $request->input('lng');
         $bloodbank->save();
         return redirect()->back()->with('message', 'Geo location updated successfully');
 

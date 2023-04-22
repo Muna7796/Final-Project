@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\BloodBankController;
 use App\Http\Controllers\UserDistanceController;
-use NominatimLaravel\Content\Nominatim;
-use App\Models\BloodBank;
+
 
 
 /*
@@ -71,55 +71,4 @@ Route::post('/geolocation/add/{bloodbank}', [BloodBankController::class, 'postBl
 );
 Route::get('/shortdist', [UserDistanceController::class, 'create'])->name('shortdist.create');
 
-Route::get('test', function () {
-    $UserCoord = array(); //stores user coord;
-    $location = 'Purtimkanda';
-    $bloodcoord = BloodBank::select('lat', 'lng', 'name')->get();
-
-    //find user coord
-    $url = "http://nominatim.openstreetmap.org/";
-    $nominatim = new Nominatim($url);
-
-    $search = $nominatim->newSearch()
-        ->country('Nepal')
-        ->city($location)
-        ->polygon('geojson')    //or 'kml', 'svg' and 'text'
-        ->addressDetails();
-
-    $result = $nominatim->find($search);
-
-
-    array_push($UserCoord, $result[0]['lat'], $result[0]['lon']); //gather user coord
-
-
-    //haversine
-    function haversineDistance($lat1, $lon1, $lat2, $lon2)
-    {
-        $earthRadius = 6371; // radius of the earth in kilometers
-
-
-        $latDiff = deg2rad($lat2 - $lat1);
-        $lonDiff = deg2rad($lon2 - $lon1);
-
-        $a = sin($latDiff / 2) * sin($latDiff / 2) + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * sin($lonDiff / 2) * sin($lonDiff / 2);
-        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
-
-        $distance = $earthRadius * $c; // distance in kilometers
-
-        return $distance;
-    }
-
-    $bestDistance = INF;
-    $closestLocationName = "";
-
-    foreach ($bloodcoord as $blood) {
-        $distance = haversineDistance($UserCoord[0], $UserCoord[1], $blood['lat'], $blood['lon']);
-
-        if ($distance < $bestDistance) {
-            $bestDistance = $distance;
-            $closestLocationName = $blood['name'];
-        }
-    }
-
-    return "Our location " . $location . ', Nearest blood bank ' . $closestLocationName;
-});
+Route::get('test', [UserDistanceController::class, 'getFindNearestBloodbank'])->name('user.getFindNearestBloodbank');

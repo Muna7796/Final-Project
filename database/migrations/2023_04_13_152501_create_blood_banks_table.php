@@ -18,14 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->bigInteger('phone');
-<<<<<<< HEAD
-             $table->string('lat')->nullable();
+            $table->string('lat')->nullable();
             $table->string('lng')->nullable();
-=======
-            $table->float('lat');
-            $table->float('lon');
->>>>>>> karuna_branch
-
             $table->timestamps();
         });
     }

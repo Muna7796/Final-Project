@@ -84,7 +84,7 @@
                                  @foreach($requestednames as $requestname)
                                 @php $name1 = App\Models\User::find($requestname->user_id);
                                 @endphp
-                                <option value="{{$requestname->id}}">{{$name1->name}} {{$name1->lname}} ({{$name1->email}})</option>
+                                <option value="{{$requestname->id}}">{{$name1->name}} {{$name1->lname}} ({{$name1->mobile}})</option>
                             @endforeach
                             </select>
                     </div>

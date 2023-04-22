@@ -26,7 +26,7 @@
                             <div class="col-md-6">
                                 <h5>Request By</h5> 
                                 Full Name : {{$user->name}} {{$user->lname}} <br />
-                                Mobile Number : {{$user->email}} <br />
+                                Mobile Number : {{$user->mobile}} <br />
                                 Address: {{$user->city}}
 
                             </div>
