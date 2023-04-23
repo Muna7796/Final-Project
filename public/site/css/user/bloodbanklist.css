@@ -1,0 +1,136 @@
+/* Styling for table */
+.table {
+
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    border-collapse: collapse;
+}
+
+.table th {
+    font-weight: bold;
+    background-color: #f1f1f1;
+    text-align: center;
+    font-size: 17px;
+}
+
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody+tbody {
+    border-top: 2px solid #dee2e6;
+}
+
+.table-sm th,
+.table-sm td {
+    padding: 0.3rem;
+}
+
+/* Styling for card */
+.card {
+    position: relative;
+    top: 70px;
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0 0 30px 0 rgba(70, 70, 70, 0.2);
+}
+
+.card-header {
+    background-color: #671b1b;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: rgb(215, 215, 215);
+    text-align: center;
+
+}
+
+.card-body {
+    padding: 20px;
+}
+
+
+/* Styling for row */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+}
+
+/* Styling for column */
+.col-md-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+    margin: 10px;
+}
+
+/* Styling for table cells */
+td {
+    text-align: center;
+}
+
+/* Styling for table header cells */
+th {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Styling for table row on hover */
+tr:hover {
+    background-color:#f5f5f5 !important;
+}
+
+/* Styling for responsive table */
+@media (max-width: 767px) {
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid #ddd;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .table-responsive>.table {
+        margin-bottom: 0;
+    }
+
+    .table-responsive>.table>thead>tr>th,
+    .table-responsive>.table>tbody>tr>th,
+    .table-responsive>.table>tfoot>tr>th,
+    .table-responsive>.table>thead>tr>td,
+    .table-responsive>.table>tbody>tr>td,
+    .table-responsive>.table>tfoot>tr>td {
+        white-space: nowrap;
+    }
+
+    .table-responsive>.table-bordered {
+        border: 0;
+    }
+
+    .table-responsive>.table-bordered>thead>tr>th:first-child,
+    .table-responsive>.table-bordered>tbody>tr>th:first-child,
+    .table-responsive>.table-bordered>tfoot>tr>th:first-child,
+    .table-responsive>.table-bordered>thead>tr>td:first-child,
+    .table-responsive>.table-bordered>tbody>tr>td:first-child,
+    .table-responsive>.table-bordered>tfoot>tr>td:first-child {
+        border-left: 0;
+    }
+}
+
+body {
+    background-image: url('../../Images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+}

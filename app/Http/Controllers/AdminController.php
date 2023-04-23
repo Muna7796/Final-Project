@@ -38,7 +38,7 @@ class AdminController extends Controller
         //dd('sd');
         if(Auth()->user()->is_admin == 1){
             $data =[
-                'donners' => Blood::orderby('id', 'desc')->get()
+                'donners' => Blood::orderby('id', 'asc')->get()
             ];
             return view('admin.donner', $data);
         }

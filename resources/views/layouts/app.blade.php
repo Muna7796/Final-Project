@@ -13,18 +13,19 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('site/css/app.css')}}">
+    <!-- <link rel="stylesheet" href="{{asset('site/css/app.css')}}"> -->
       <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    @yield('css')
+    @yield('css') 
     <style>
         .nav-link{
             color:#fff;
         }
     </style>
-   
+     <link rel="stylesheet" type="text/css" href="{{asset('site/css/admintemplate.css')}}">
+   <link rel="stylesheet" type="text/css" href="{{asset('admin/css/admin.css')}}">
 </head>
 
 <body>
@@ -99,7 +100,7 @@
                                     @if(Auth::user()->is_admin == 1)
                                         (Administrator)
                                     @else
-                                        (Donor)
+                                        (User)
                                     @endif
                                 </a>
 

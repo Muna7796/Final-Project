@@ -1,0 +1,72 @@
+.card-header {
+    background-color: #672424;
+    color: #fff;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .card-header,
+    .card-body {
+        padding: 10px;
+    }
+
+    .form-group label {
+        margin-bottom: 5px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+}
+
+body {
+    background-image: url('../Images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+}
+
+
+label {
+    font-weight: bold;
+    color: #333;
+    font-size: 25px;
+
+}

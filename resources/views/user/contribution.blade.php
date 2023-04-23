@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+<link rel="stylesheet" href="{{asset('site/css/user/contribution.css')}}">
+
 <div class="container">
     <div class="row justify-content-center">
             <div class="col-md-8">
@@ -19,9 +21,9 @@
                                     @if($donates->count())
                                         @foreach($donates as $item)
                                             <tr>
-                                                <td>{{$item->latest_donate_date}}</td>
+                                                <td>{{$item->donate_date}}</td>
                                                 <td>
-                                                    blood name
+                                                    {{$item->blood_group}}
                                                 </td>
                                                 <td>{{$item->donate_at }}</td>
                                             </tr> 

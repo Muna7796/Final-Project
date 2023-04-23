@@ -7,17 +7,17 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Rakta Seva</title>
+    <title>Rakt Seva1</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
-         <link rel="stylesheet" type="text/css" href="{{asset('admin/css/admintemplate.css')}}">
+         <link rel="stylesheet" type="text/css" href="{{asset('site/css/admintemplate.css')}}">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    @yield('css')
+    
      <link rel="stylesheet" type="text/css" href="{{asset('admin/css/admin.css')}}">
 
 </head>
@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}" style="color:#fff">
-                    Rakta Seva
+                    Rakt Seva
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -87,7 +87,7 @@
                                     @if(Auth::user()->is_admin == 1)
                                         (Administrator)
                                     @else
-                                        (Donor)
+                                        (User)
                                     @endif
                                 </a>
 
@@ -125,9 +125,11 @@
    
      @yield('js')
       <script>
-        $(document).ready( function () {
-    $('#myTable').DataTable({order:['desc']});
-
+       
+        $(document).ready(function () {
+    $('#myTable').DataTable({
+        order: [[1, 'asc']],
+    });
 });
     </script>
 </body>

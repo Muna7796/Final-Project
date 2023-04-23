@@ -1,5 +1,6 @@
 @extends('admin.template')
 @section('content') 
+<link rel="stylesheet" href="{{asset('site/css/manageblood.css')}}">
 <div class="container">
     <div class="row justify-content-center">
             <div class="col-md-12">
@@ -132,7 +133,7 @@
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label>Minicipality *</label> 
+                        <label>Municipality *</label> 
                         <select id="municipalitySel" name="minicipality" class="form-control" size="1" required>
                         <option selected=""> Choose Municipality</option>
                         </select>

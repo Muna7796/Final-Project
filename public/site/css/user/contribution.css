@@ -1,0 +1,60 @@
+
+.card {
+    position: relative;
+    top: 60px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    background-color: #691b1b;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: center;
+}
+
+.table thead th {
+    border-bottom: 2px solid #ddd;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+@media (max-width: 767px) {
+    .card-header {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px;
+    }
+}
+body {
+    background-image: url('../../Images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+}

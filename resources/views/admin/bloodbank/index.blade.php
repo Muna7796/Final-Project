@@ -1,6 +1,7 @@
 @extends('admin.template')
 
 @section('content')
+<link rel="stylesheet" href="{{asset('site/css/index.css')}}">
 <div class="container">
     <h1>Blood Banks</h1>
     <table class="table">

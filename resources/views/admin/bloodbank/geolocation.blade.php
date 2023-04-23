@@ -1,5 +1,6 @@
 @extends('admin.template')
 @section('content')
+<link rel="stylesheet" href="{{asset('site/css/geolocation.css')}}">
 <div class="container">
     <div class="row justify-content-center">
         <!-- if boold information  not exisit then only show -->

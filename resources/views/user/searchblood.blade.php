@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+<link rel="stylesheet" href="{{asset('site/css/user/searchblood.css')}}">
+
+
 <div class="container">
     <div class="row justify-content-center">
             <div class="col-md-12">

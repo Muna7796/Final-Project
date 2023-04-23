@@ -147,6 +147,7 @@ class HomeController extends Controller
         $data =[
             'donates' => Donated::where('user_id', Auth()->user()->id)->get()
         ];
+       
         return view('user.contribution', $data);
         }
         else{

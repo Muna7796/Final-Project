@@ -1,0 +1,66 @@
+/* Style the card */
+.card {
+    position: relative;
+    top: 60px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+}
+
+.card-header {
+    background-color: #691b1b;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.card-body {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+select {
+    height: 50px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #495057;
+}
+
+button {
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #0e427a;
+}
+body {
+    background-image: url('../../Images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+}

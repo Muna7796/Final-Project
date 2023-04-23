@@ -1,0 +1,75 @@
+/* Style the container */
+
+
+/* Style the form */
+.form-horizontal {
+
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 20px;
+    padding-left: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    left: 220px;
+    top: 20px;
+
+}
+
+/* Style the input fields */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+/* Style the buttons */
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0062cc;
+}
+
+/* Style the error messages */
+.has-error .help-block {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.panel-heading {
+    background-color: #692222;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px 5px 0 0;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+    left: 220px;
+    top: 20px;
+
+
+}
+
+body {
+    background-image: url('../Images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+}
