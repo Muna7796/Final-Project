@@ -15,7 +15,7 @@
                                         <th>Address</th>
                                         <th>Contact Number</th>
                                         <th>Distance</th>
-                                    </tr>
+                                       
                                 </thead>
                                 <tbody>
                                     @if($bloodbanks->count())
@@ -42,26 +42,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" style="margin-top:10px">
+               
+            </div>
+    </div>
+    <div class="row" style="min-height: 300px;">
+        <div class="col-md-12">
+             <div class="card" style="margin-top:10px">
                     <div class="card-header">{{ __('Search Nearest Blood Bank from anywhere') }}</div>
                     <div class="card-body">
                         <div class="row">
-                           <form id="distance-form" method="GET" action="{{ route('user.getFindNearestBloodbank') }}">
-            @csrf
-
-            
-            
-            <label for="location">Location:</label>
-            <input type="text" id="location" name="location" required>
-            <button type="submit">Find Shortest Distance</button>
-        </form>
-        @if($result != Null)
-            <h3>{{$result}}</h3>
-        @endif
+                           <form id="distance-form" method="GET" action="{{route('user.getFindNearestBloodbank') }}">
+                                @csrf
+                                <label for="location">Location:</label>
+                                <input type="text" id="location" name="location" required>
+                                <button type="submit">Find Shortest Distance</button>
+                            </form>
+                            @if($result != Null)
+                                <h3>{{$result}}</h3>
+                            @endif
                         </div>
                     </div>
                 </div>
-            </div>
+        </div>
     </div>
 </div>
 @stop

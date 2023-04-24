@@ -40,7 +40,7 @@ class AdminController extends Controller
             $data =[
                 'donners' => Blood::orderby('id', 'desc')->get()
             ];
-            return view('admin.donner', $data);
+            return view('admin.donner', $data); 
         }
         else{
             abort('404');
@@ -494,6 +494,7 @@ public function postListfofDonnorToRequest(Request $request, $type){
         }
 
      }
+     return redirect()->back()->with('message', 'Request has been send to donor via sms');      
     
 }
     

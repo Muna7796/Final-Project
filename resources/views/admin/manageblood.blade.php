@@ -44,75 +44,91 @@
                                     <td>
                                         @php
                                         $Apluscount = App\Models\Donated::where('blood_group', 'A+')->where('issue_status', 'N')->count();
-                                        // $test = App\Models\Donated::all();
-                                        // $test = App\Models\Donated::where('donate_at', 'pokhara')->get();
-                                        //$test = App\Models\Donated::first();
-                                        $test = App\Models\Donated::where('blood_group', 'A+')->first();
-                                         // all(), get(), first()
-                                        //dd($test);
+                                        $totalApluedonnor = App\Models\Blood::where('blood_group', 'A+')->count();
                                         @endphp
 
                                         <span style="<?php if ($Apluscount < 10) echo 'color:red'; ?>"> {{$Apluscount}} Unit </span>
                                     </td>
                                     <td>
-                                        <a href="{{route('admin.getbloodlist', 'A+')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'A+')}}">Request Blood from Donor</a>
+                                        <a href="{{route('admin.getbloodlist', 'A+')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'A+')}}">Request Blood from Donor ({{$totalApluedonnor}})</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>B+</td>
                                     <td>
-                                        @php $count1 = App\Models\Donated::where('blood_group', 'B+')->where('issue_status', 'N')->count(); @endphp
+                                        @php
+                                        $count1 = App\Models\Donated::where('blood_group', 'B+')->where('issue_status', 'N')->count();
+                                         $totaldonnor1 = App\Models\Blood::where('blood_group', 'B+')->count();
+                                        @endphp
                                         <span style="<?php if ($count1 < 10) echo 'color:red'; ?>">{{$count1}} Unit </span>
                                     </td>
-                                    <td><a href="{{route('admin.getbloodlist', 'B+')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'B+')}}">Request Blood from Donor</a></td>
+                                    <td><a href="{{route('admin.getbloodlist', 'B+')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'B+')}}">Request Blood from Donor ({{$totaldonnor1}})</a></td>
                                 </tr>
                                 <tr>
                                     <td>O+</td>
                                     <td>
-                                        @php $count2 = App\Models\Donated::where('blood_group', 'O+')->where('issue_status', 'N')->count(); @endphp
+                                        @php
+                                        $count2 = App\Models\Donated::where('blood_group', 'O+')->where('issue_status', 'N')->count();
+                                         $totaldonnor2 = App\Models\Blood::where('blood_group', 'O+')->count();
+                                        @endphp
                                         <span style="<?php if ($count2 < 10) echo 'color:red'; ?>">{{$count2}} Unit </span>
                                     </td>
-                                    <td><a href="{{route('admin.getbloodlist', 'O+')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'O+')}}">Request Blood from Donor</a></td>
+                                    <td><a href="{{route('admin.getbloodlist', 'O+')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'O+')}}">Request Blood from Donor ({{$totaldonnor2}})</a></td>
                                 </tr>
                                 <tr>
                                     <td>O-</td>
                                     <td>
-                                        @php $count3 = App\Models\Donated::where('blood_group', 'O-')->where('issue_status', 'N')->count(); @endphp
+                                        @php
+                                        $count3 = App\Models\Donated::where('blood_group', 'O-')->where('issue_status', 'N')->count();
+                                         $totaldonnor3 = App\Models\Blood::where('blood_group', 'O-')->count();
+                                        @endphp
                                         <span style="<?php if ($count3 < 10) echo 'color:red'; ?>">{{$count3}} Unit </span>
                                     </td>
-                                    <td><a href="{{route('admin.getbloodlist', 'O-')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'O-')}}">Request Blood from Donor</a></td>
+                                    <td><a href="{{route('admin.getbloodlist', 'O-')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'O-')}}">Request Blood from Donor ({{$totaldonnor3}})</a></td>
                                 </tr>
                                 <tr>
                                     <td>AB+</td>
                                     <td>
-                                        @php $count4 = App\Models\Donated::where('blood_group', 'AB+')->where('issue_status', 'N')->count(); @endphp
+                                        @php
+                                        $count4 = App\Models\Donated::where('blood_group', 'AB+')->where('issue_status', 'N')->count();
+                                         $totaldonnor4 = App\Models\Blood::where('blood_group', 'AB+')->count();
+                                        @endphp
                                         <span style="<?php if ($count4 < 10) echo 'color:red'; ?>">{{$count4}} Unit</span>
                                     </td>
-                                    <td><a href="{{route('admin.getbloodlist', 'AB+')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'AB+')}}">Request Blood from Donor</a></td>
+                                    <td><a href="{{route('admin.getbloodlist', 'AB+')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'AB+')}}">Request Blood from Donor ({{$totaldonnor4}})</a></td>
                                 </tr>
                                 <tr>
                                     <td>AB-</td>
                                     <td>
-                                        @php $count5 = App\Models\Donated::where('blood_group', 'AB-')->where('issue_status', 'N')->count(); @endphp
+                                        @php
+                                        $count5 = App\Models\Donated::where('blood_group', 'AB-')->where('issue_status', 'N')->count();
+                                         $totaldonnor5 = App\Models\Blood::where('blood_group', 'AB-')->count();
+                                        @endphp
                                         <span style="<?php if ($count5 < 10) echo 'color:red'; ?>">{{$count5}} Unit </span>
                                     </td>
-                                    <td><a href="{{route('admin.getbloodlist', 'AB-')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'AB-')}}">Request Blood from Donor</a></td>
+                                    <td><a href="{{route('admin.getbloodlist', 'AB-')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'AB-')}}">Request Blood from Donor ({{$totaldonnor5}})</a></td>
                                 </tr>
                                 <tr>
                                     <td>A-</td>
                                     <td>
-                                        @php $count6 = App\Models\Donated::where('blood_group', 'A-')->where('issue_status', 'N')->count(); @endphp
+                                        @php
+                                        $count6 = App\Models\Donated::where('blood_group', 'A-')->where('issue_status', 'N')->count();
+                                         $totaldonnor6 = App\Models\Blood::where('blood_group', 'A-')->count();
+                                        @endphp
                                         <span style="<?php if ($count6 < 10) echo 'color:red'; ?>"> {{$count6}} Unit </span>
                                     </td>
-                                    <td><a href="{{route('admin.getbloodlist', 'A-')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'A-')}}">Request Blood from Donor</a></td>
+                                    <td><a href="{{route('admin.getbloodlist', 'A-')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'A-')}}">Request Blood from Donor ({{$totaldonnor6}})</a></td>
                                 </tr>
                                 <tr>
                                     <td>B-</td>
                                     <td>
-                                        @php $count6 = App\Models\Donated::where('blood_group', 'B-')->where('issue_status', 'N')->count(); @endphp
-                                        <span style="<?php if ($count6 < 10) echo 'color:red'; ?>"> {{$count6}} Unit </span>
+                                        @php
+                                        $count7 = App\Models\Donated::where('blood_group', 'B-')->where('issue_status', 'N')->count();
+                                         $totaldonnor7 = App\Models\Blood::where('blood_group', 'B-')->count();
+                                        @endphp
+                                        <span style="<?php if ($count6 < 10) echo 'color:red'; ?>"> {{$count7}} Unit </span>
                                     </td>
-                                    <td><a href="{{route('admin.getbloodlist', 'B-')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'B-')}}">Request Blood from Donor</a></td>
+                                    <td><a href="{{route('admin.getbloodlist', 'B-')}}">Issue Blood</a> | <a href="{{route('admin.getListfofDonnorToRequest', 'B-')}}">Request Blood from Donor ({{$totaldonnor7}})</a></td>
                                 </tr>
                             </tbody>
                         </table>

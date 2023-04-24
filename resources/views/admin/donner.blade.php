@@ -48,7 +48,9 @@
                                         @if($user)
                                             <tr>
                                                 <td>{{$user->id}}</td>
-                                                <td>{{$user->name}} {{$user->lname}}</td>
+                                                <td>{{$user->name}} {{$user->lname}} <br />
+                                                    {{$user->mobile}}
+                                                </td>
                                                 <td>{{$user->province}}</td>
                                                 <td>{{$user->district }}</td>
                                                 <td>{{$user->minicipality }}</td>
