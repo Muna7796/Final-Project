@@ -467,6 +467,7 @@ public function getAdminUserDelete(User $user){
     return redirect()->back()->with('message', 'Admin User Deleted Successfully');
 }
 public function  getListfofDonnorToRequest($type){
+ 
      $data =[
                 'bloods' => Blood::where('blood_group', $type)->get(),
                 'type' => $type,

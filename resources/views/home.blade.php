@@ -116,6 +116,11 @@
          @endif
          <div class="row1 justify-content-center11" style="margin-top: 10px;">
                 <div class="col-md-12">
+                     @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                  <div class="card">
                 <div class="card-header">{{ __('Your Google Location Co-ordinate') }}</div>
 

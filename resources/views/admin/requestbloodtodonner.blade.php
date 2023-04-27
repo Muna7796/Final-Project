@@ -9,7 +9,7 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-6">
-                                List of {{$type}} blood11
+                                List of {{$type}} blood
                             </div>
                            
                         </div>
@@ -32,6 +32,7 @@
                                 <thead>
                                     <tr>
                                         <th><input type="checkbox" id="select-all"> (All)</th>
+
                                         <th>Blood Group</th>
                                         
                                         <th>Donnor</th>
@@ -77,7 +78,14 @@
                                             <td>
                                                 @if($blood->user_id != Null)
                                                     
-                                                    {{ $user->name}} {{$user->lname}} ({{$distance}} Km near) 
+                                                    {{ $user->name}} {{$user->lname}} 
+                                                    @if($user->lat != Null)
+                                                    <br />
+                                                    ({{$distance}} Km near) 
+                                                    @else
+                                                    <br />
+                                                        location define N/A
+                                                    @endif
                                                  @else
                                                     --
                                                 @endif
