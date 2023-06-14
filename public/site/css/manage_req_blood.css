@@ -15,8 +15,9 @@
     background-color: hwb(0 4% 66%);
     color: #fff;
     padding: 1rem;
+
     text-align: left;
-    font-size: 21px;
+    font-size: 19px;
 }
 
 .card-body {
